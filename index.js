@@ -18,6 +18,18 @@ var express = require('express');
 var app = express()
 
 app.get('/', function(req, res) {
+    res.send('<h1>Hello Word!</h1>')
+})
+
+app.get('/', function(req, res) {
+    res.send('post')
+})
+app.get('/', function(req, res) {
+    res.send('put')
+})
+
+
+app.get('/', function(req, res) {
     res.send('WHATS there')
 })
 
