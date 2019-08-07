@@ -13,24 +13,29 @@ const site = http.createServer(function(req, res) {
     res.end();
 });
 site.listen(3000);*/
-
 var express = require('express');
 var app = express()
+const bodyparser = require('body-parser');
 
-app.get('/', function(req, res) {
-    res.send('<h1>Hello Word!</h1>')
-})
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(bodyparser.json());
 
-app.get('/', function(req, res) {
-    res.send('post')
-})
-app.get('/', function(req, res) {
-    res.send('put')
-})
 
 
 app.get('/', function(req, res) {
-    res.send('WHATS there')
+    res.send('Whats there');
+})
+app.post('/', function(req, res) {
+    console.log(req.body);
+    res.send('post ');
+});
+app.put('/', function(req, res) {
+
+    res.send(' put');
+});
+app.delete('/', function(req, res) {
+
+    res.send('delete');
 })
 
-app.listen(3000)
+app.listen(3000);
